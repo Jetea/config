@@ -1,6 +1,6 @@
 <?php
 
-namespace Tree6bee\Support\Ctx\Config;
+namespace Jetea\Config;
 
 use ArrayAccess;
 use Jetea\Support\Arr;
