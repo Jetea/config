@@ -4,12 +4,6 @@ namespace Jetea\Config;
 
 /**
  * 框架配置辅助类
- *
- * @example
- * print_r($this->ctx->Ctx->getConf('upload.ip@common/main'));
- * $this->ctx->Ctx->setConf('upload.ip@common/main', '123');
- * print_r($this->ctx->Ctx->getConf('upload.ip@common/main'));
- * var_dump($this->ctx->Ctx->getSConf('default.master.host@db'));
  */
 class Config
 {
@@ -44,13 +38,10 @@ class Config
     /**
      * 获取配置
      *
-     * @param $item string 配置选项,如 'upload.ip@common/main'
+     * @param $item string 配置选项
      * @param mixed $default 默认值
      *
      * @return mixed
-     *
-     * @example
-     * $this->getConfig('upload.ip@common/main');
      */
     public function get($item, $default = null)
     {
@@ -81,7 +72,7 @@ class Config
     /**
      * 动态修改配置
      *
-     * @param $item string 如 'upload.ip@Ctx/main',
+     * @param $item string
      * @param $config mixed 配置值
      * @return void
      */
