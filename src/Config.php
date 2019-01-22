@@ -54,10 +54,6 @@ class Config
      */
     public function get($item, $default = null)
     {
-        if (empty($item)) {
-            return $this->repository->all();
-        }
-
         $segments = explode('.', $item, 2);
         $this->load($segments[0]);
 
