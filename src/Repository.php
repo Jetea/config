@@ -16,7 +16,7 @@ class Repository implements ArrayAccess
      *
      * @var array
      */
-    protected $items = array();
+    protected $items = [];
 
     /**
      * Create a new configuration repository.
@@ -24,7 +24,7 @@ class Repository implements ArrayAccess
      * @param  array  $items
      * @return void
      */
-    public function __construct(array $items = array())
+    public function __construct(array $items = [])
     {
         $this->items = $items;
     }
