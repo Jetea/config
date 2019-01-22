@@ -59,9 +59,8 @@ class Config
         }
 
         $segments = explode('.', $item, 2);
-        if (! isset($this->loadedConfigurations[$segments[0]])) {
-            $this->load($segments[0]);
-        }
+        $this->load($segments[0]);
+
         return $this->repository->get($item, $default);
     }
 
@@ -71,7 +70,7 @@ class Config
      * @param $name string 如 'main',
      * @return void
      */
-    public function load($name)
+    protected function load($name)
     {
         if (isset($this->loadedConfigurations[$name])) {
             return;
@@ -81,5 +80,20 @@ class Config
 
         $file = $this->configDir . '/' . $name . '.php';
         $this->repository->set($name, require $file);
+    }
+
+    /**
+     * 动态修改配置
+     *
+     * @param $item string 如 'upload.ip@Ctx/main',
+     * @param $config mixed 配置值
+     * @return void
+     */
+    public function set($item, $config)
+    {
+        $segments = explode('.', $item, 2);
+        $this->load($segments[0]);
+
+        $this->repository->set($item, $config);
     }
 }
